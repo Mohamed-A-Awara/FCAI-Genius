@@ -1,0 +1,83 @@
+.register-page{
+    height: calc(100vh - 80px);
+    width: 100%;
+    /* background-color: rgb(183, 182, 181); */
+}
+.register-page h1{
+    text-align: center;
+    padding: 30px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #337CCF;
+    opacity: 0.7;
+}
+.input-parent{
+    width: 100%;
+    /* background-color: antiquewhite; */
+    justify-content: space-between;
+    padding: 50px;
+    display: flex;
+    transition: all 0.5s;
+    row-gap: 70px;
+}
+.input-style label{
+    display: block;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    padding: 15px;
+
+}
+.input-style input{
+    width: 90%;
+    height: 40px;
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 30px;
+    background-color: #ddd
+}
+.input-style input:focus{
+    background-color: white;
+}
+.teams-data{
+    display: flex;
+    justify-content: space-between;
+    margin-top: -50px;
+}
+.teams-data div  .team-icon{
+    font-size: 70px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    color: #337CCF;
+    background-color: #ddd;
+    
+
+}
+.teams-data div {
+    padding: 30px;
+    transition: all 1s;
+}
+.teams-data div:hover{
+    border: 2px solid #337CCF;
+
+}
+.teams-data div h3{
+    text-transform: uppercase;
+    text-align: center;
+    padding: 10px;
+    color: #337CCF;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+.link-start a{
+    display: block;
+    width: 80%;
+    height: 44px;
+    margin: 0 auto;
+    border-radius: 100px;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 5px;
+    
+}

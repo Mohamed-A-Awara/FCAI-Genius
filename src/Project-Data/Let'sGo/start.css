@@ -1,0 +1,130 @@
+.start-page{
+    height: calc(100vh - 80px);
+    width: 100%;
+    padding: 50px;
+    /* background-color: antiquewhite; */
+    display: flex;
+    justify-content: space-around;
+}
+.start-page .team-one , .start-page .team-two{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height:50vh;
+    width: 25%;
+    /* background-color: aqua; */
+    text-align: center;
+    font-size: 20px;
+    text-transform: uppercase;
+    padding: 5px 20px;
+    border:  2px solid #337CCF;
+    border-radius: 50px;
+    box-shadow: 1px 1px 20px 5px #337CCF;
+}
+.start-page .team-one .btn-control ,.start-page .team-two .btn-control {
+    display: flex;
+    width: 100%;
+    /* background-color: aqua; */
+    justify-content: space-between;
+}
+.start-page .team-one .btn-control .btn-counter, .start-page .team-two .btn-control .btn-counter{
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+}
+.team-one .counter-value , .team-two .counter-value  {
+    height: 100px;
+    width: 100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: 1px 1px 20px 1px #337CCF;
+    font-size: 25px;
+    font-weight: 500;
+    transition: all 0.7s;
+}
+.team-one h3 , .team-two h3{
+    color: #337CCF;
+}
+.team-one .counter-value:hover , .team-two .counter-value:hover{
+    transform: scale(1.1);
+}
+.timer-data{
+    padding: 20px;
+    width: 30%;
+    margin: 0 auto;
+    /* background-color: #337CCF; */
+}
+.timer-data h1 {
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    background-color: #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    box-shadow:  1px 1px 20px 5px #337CCF inset;
+}
+.timer-data .Timer-controls{
+    margin-top: 50px;
+    height: 25vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    /* background-color: #eee; */
+    padding: 20px;
+    box-shadow: 1px 1px 10px 1px #337CCF;
+    border-radius: 60px;
+}
+
+@media (max-width: 768px) {
+    .start-page{
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: flex-start;
+        margin-top: 500px;
+    }
+    .start-page .team-one , .start-page .team-two{
+        height: auto;
+        width: 80%;
+        margin:  0 auto;
+        padding: 50px;
+        /* background-color: aqua; */
+    }
+    .timer-data{
+        width: 100%;
+        padding: 25px 15px;
+        
+    }
+    .timer-data .Timer-controls{
+        height: 40vh;
+        width: 100%;
+        padding: 20px 10px;
+        /* justify-content: space-between; */
+        margin-top: 10px;
+    }
+    .timer-data .Timer-controls button{
+            width: 60%;
+            margin: 0 auto;
+
+    }
+    .start-page .team-one .btn-control , .start-page .team-two .btn-control 
+        {
+            display: flex;
+            flex-direction: column;
+            
+            margin-top: 30px;
+            align-items: center;
+        }
+        .start-page .team-one .btn-control .btn-counter, .start-page .team-two .btn-control .btn-counter
+            {
+                margin-bottom: 20px;
+            }
+}
