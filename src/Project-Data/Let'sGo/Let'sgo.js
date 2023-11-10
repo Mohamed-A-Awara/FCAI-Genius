@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import { teamName } from '../Register/Register'
 import './start.css'
 import { Button } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { add5numberOne, add5numberTwo, addnumberOne, addnumberTwo, del5numberOne, del5numberTwo, delnumberOne, delnumberTwo, resetvalue } from './ReduxFiles/Slice'
-
-
+import PauseIcon from '@mui/icons-material/Pause';
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import count20s from '../Audios/Count20.mp3'
 import count45s from '../Audios/Count45.mp3'
 function StartDay() {    
@@ -20,43 +20,50 @@ function StartDay() {
         const del5T1 = ()=> {dispatch( del5numberOne())}
         const del5T2 = ()=>{ dispatch ( del5numberTwo())}
         // const resetCounter = ()=> {dispatch( resetvalue())}
+
+
         // ********************** Timer Function ********************* */ 
         const [timer,settimer] = useState(20) 
-        const t15 = ()=>{
+        const t15 = useCallback( ()=>{
             settimer((x)=>{
-                while (x!==0){
-                    return x-1
+                let c = x
+                while (c!== 0){
+                    return c-1
                 }
-                return x=0
-                
+                return c=0
             })
-        }
+        },[])
         const startTimer = ()=>{
-            setInterval(t15 , 1000)
+            setInterval(t15,1000)
+            return ()=>{
+                clearInterval(t15)
+            }
         }    
-            
+        
         //**************** Audio Sound  ******************************** */
         const sound20 = new Audio(count20s)
         const sound45 = new Audio(count45s)
-        const play20s =()=>{
-                sound20.play()
+        const ss = {
+            pp : ()=> sound20.play(),
+            aa : ()=> sound20.pause(),
+            resetTimer: ()=>{
+                settimer(0)
+            },
+            startTimerobject: ()=>{
+                startTimer()
+                settimer(20)
+            }
         }
-        const play45s = ()=>{
-            sound45.play()
-        }
-        const pause20s = ()=>{
-                sound20.pause()
-        }
-
-        const start20s = ()=>{
-            startTimer()
-            settimer(20)
-            play20s()
-        }
-        const start45s = ()=>{
-            startTimer()
-            settimer(45)
-            play45s()
+        const ss45 = {
+            pp : ()=> sound45.play(),
+            aa : ()=> sound45.pause(),
+            resetTimer: ()=>{
+                settimer(0)
+            },
+            startTimerobject: ()=>{
+                startTimer()
+                settimer(45)
+            }
         }
         
     return (
@@ -75,11 +82,25 @@ function StartDay() {
                 <div className='timer-data'>
                         <h1>{timer}</h1>
                         <div className='Timer-controls'>
-                            <Button className='btn btn-info' onClick={()=> start20s()}>Start 20s</Button>
-                            <Button className='btn btn-info' onClick={()=> start45s()}>Start 45s</Button>
-                            <Button className='btn btn-info' onClick={()=> settimer(0)}>Reset Timer</Button>
+                            <Button className='btn btn-info' onClick={()=> ss.startTimerobject()}>Start 20s</Button>
+                            <Button className='btn btn-info' onClick={()=> ss45.startTimerobject()}>Start 45s</Button>
+                            <Button className='btn btn-info' onClick={()=> ss.resetTimer()}>Reset Timer</Button>
+                        </div>
+
+                        <div className='sound-controls'>
+                            <div className='sound20S'>
+                                <p>Counter 20s</p>
+                                <PlayArrowIcon className='pause-icon'  onClick={ss.pp}/>
+                                <PauseIcon className='pause-icon' onClick={ss.aa}/>
+                            </div>
+                            <div className='sound45S'>
+                                <p>Counter 45s</p>
+                                <PlayArrowIcon className='pause-icon'  onClick={ss45.pp}/>
+                                <PauseIcon className='pause-icon' onClick={ss45.aa}/>
+                            </div>
                         </div>
                 </div>
+
                 <div className='team-two'>
                 <h3>Team {teamName.LastTeam}</h3>
                     <div className='counter-value'>{valueteam2}</div>
