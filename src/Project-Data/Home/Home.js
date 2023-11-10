@@ -19,7 +19,7 @@ function Home() {
                     </div>
                     <div className='our-view'>
                         <h2>Genius competition</h2>
-                        <NavLink to='/register' className='btn btn-primary'>get started !</NavLink>     
+                        <NavLink to='/register' className='btn btn-primary' style={{opacity:"0.75"}}>get started !</NavLink>     
                     </div>
                     
                 </div>
